@@ -29,35 +29,35 @@ namespace HelloWorld
             GUILayout.EndArea();
         }
 
-        static void StartButtons()
+        void StartButtons()
         {
-            if (GUILayout.Button("Host")) NetworkManager.Singleton.StartHost();
-            if (GUILayout.Button("Client")) NetworkManager.Singleton.StartClient();
-            if (GUILayout.Button("Server")) NetworkManager.Singleton.StartServer();
+            if (GUILayout.Button("Host")) m_NetworkManager.StartHost();
+            if (GUILayout.Button("Client")) m_NetworkManager.StartClient();
+            if (GUILayout.Button("Server")) m_NetworkManager.StartServer();
         }
 
-        static void StatusLabels()
+        void StatusLabels()
         {
-            var mode = NetworkManager.Singleton.IsHost ?
-                "Host" : NetworkManager.Singleton.IsServer ? "Server" : "Client";
+            var mode = m_NetworkManager.IsHost ?
+                "Host" : m_NetworkManager.IsServer ? "Server" : "Client";
 
             GUILayout.Label("Transport: " +
-                NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name);
+                m_NetworkManager.NetworkConfig.NetworkTransport.GetType().Name);
             GUILayout.Label("Mode: " + mode);
         }
 
-        static void SubmitNewPosition()
+        void SubmitNewPosition()
         {
-            if (GUILayout.Button(NetworkManager.Singleton.IsServer ? "Move" : "Request Position Change"))
+            if (GUILayout.Button(m_NetworkManager.IsServer ? "Move" : "Request Position Change"))
             {
-                if (NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient)
+                if (m_NetworkManager.IsServer && !m_NetworkManager.IsClient)
                 {
-                    foreach (ulong uid in NetworkManager.Singleton.ConnectedClientsIds)
-                        NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(uid).GetComponent<HelloWorldPlayer>().Move();
+                    foreach (ulong uid in m_NetworkManager.ConnectedClientsIds)
+                        m_NetworkManager.SpawnManager.GetPlayerNetworkObject(uid).GetComponent<HelloWorldPlayer>().Move();
                 }
                 else
                 {
-                    var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
+                    var playerObject = m_NetworkManager.SpawnManager.GetLocalPlayerObject();
                     var player = playerObject.GetComponent<HelloWorldPlayer>();
                     player.Move();
                 }

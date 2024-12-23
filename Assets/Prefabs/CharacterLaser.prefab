@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570675936195490448}
   - component: {fileID: 8954010113356984522}
+  - component: {fileID: 277621530693230030}
   - component: {fileID: 8422268178628726587}
   m_Layer: 30
   m_Name: CharacterLaser
@@ -141,6 +142,31 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &277621530693230030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079616048183843744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2239023082
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &8422268178628726587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be33ef0d5644229438f38e3b726b3370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   <DamageAmount>k__BackingField: 50
   <MaxDistance>k__BackingField: 100
   _waitTimeFiring: 0.1

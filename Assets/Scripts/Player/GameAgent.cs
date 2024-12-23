@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class GameAgent : MonoBehaviour
+namespace Triwoinmag
 {
-    public enum Faction {
-        Player,
-        Allies,
-        SeventhStar
-    }
+    public class GameAgent : NetworkBehaviour
+    {
+        public enum Faction
+        {
+            Player,
+            Allies,
+            SeventhStar
+        }
 
-    public Faction ShipFaction;
+        public Faction ShipFaction;
+    }
 }
